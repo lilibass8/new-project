@@ -1,0 +1,34 @@
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+    background: var(--bg-primary);
+    direction: rtl;
+}
+
+.admin-content {
+    flex: 1;
+    margin-right: 280px;
+    padding: var(--spacing-2xl);
+    overflow-x: hidden;
+    transition: margin-right var(--transition-normal);
+}
+
+.admin-sidebar.collapsed+.admin-content {
+    margin-right: 80px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    .admin-layout {
+        flex-direction: column;
+    }
+
+    .admin-content {
+        margin-right: 0;
+        padding: var(--spacing-lg);
+    }
+
+    .admin-sidebar.collapsed+.admin-content {
+        margin-right: 0;
+    }
+}
