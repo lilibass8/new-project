@@ -65,6 +65,8 @@ function HomePage() {
                 </div>
             </section>
 
+            <AboutSection />
+            <ContactSection />
             <Footer />
         </div>
     );
