@@ -56,6 +56,9 @@ const Header = () => {
 
                         <div className="header-actions desktop-actions">
                             <Link to="/login" className=" btn btn-outline">تسجيل الدخول</Link>
+                            <Link to="/admin/login" className="btn btn-secondary" style={{ marginLeft: '0.5rem' }}>
+                                🔒 لوحة الإدارة
+                            </Link>
                             <button className="btn btn-primary">ابدأ الآن</button>
                         </div>
 
@@ -133,6 +136,9 @@ const Header = () => {
                     <div className="sidebar-actions">
                         <Link to="/login" className="btn btn-outline btn-full" onClick={closeMobileMenu}>
                             تسجيل الدخول
+                        </Link>
+                        <Link to="/admin/login" className="btn btn-secondary btn-full" onClick={closeMobileMenu} style={{ marginTop: '0.5rem' }}>
+                            🔒 لوحة الإدارة
                         </Link>
                         <button className="btn btn-primary btn-full" onClick={closeMobileMenu}>
                             ابدأ الآن
