@@ -1,55 +1,66 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import Header from './components/Header';
 import Hero from './components/Hero';
 import CategoryFilter from './components/CategoryFilter';
 import CourseCard from './components/CourseCard';
 import Footer from './components/Footer';
-import courses from './data/courses';
-import './index.css';
+import AdminLogin from './pages/AdminLogin';
+import AdminLayout from './components/admin/AdminLayout';
+import AdminDashboard from './pages/AdminDashboard';
+import EnrollmentsManagement from './pages/admin/EnrollmentsManagement';
+import ProtectedRoute from './components/ProtectedRoute';
+import coursesData from './data/courses';
+import sampleEnrollments from './data/sampleEnrollments';
+import { initializeData, saveEnrollments, getEnrollments } from './utils/storage';
+import { useState, useEffect } from 'react';
 
-function App() {
-    const [activeCategory, setActiveCategory] = useState('all');
+function HomePage() {
+    const [selectedCategory, setSelectedCategory] = useState('all');
+    const [courses, setCourses] = useState([]);
 
-    const filteredCourses = activeCategory === 'all'
+    useEffect(() => {
+        // Initialize data on first load
+        initializeData(coursesData);
+
+        // Initialize sample enrollments if empty
+        if (getEnrollments().length === 0) {
+            saveEnrollments(sampleEnrollments);
+        }
+
+        setCourses(coursesData);
+    }, []);
+
+    const filteredCourses = selectedCategory === 'all'
         ? courses
-        : courses.filter(course => course.categoryId === activeCategory);
+        : courses.filter(course => course.categoryId === selectedCategory);
 
     return (
-        <div className="App">
+        <div className="app">
             <Header />
             <Hero />
             <CategoryFilter
-                activeCategory={activeCategory}
-                onCategoryChange={setActiveCategory}
+                selectedCategory={selectedCategory}
+                onSelectCategory={setSelectedCategory}
             />
 
             <section className="courses-section py-2xl">
                 <div className="container">
-                    <div className="courses-header mb-xl">
-                        <h2 className="section-title text-center">
-                            {activeCategory === 'all' ? 'جميع الدورات' : filteredCourses[0]?.category}
+                    <div className="section-header text-center mb-2xl">
+                        <h2 className="section-title">
+                            {selectedCategory === 'all' ? 'جميع الدورات' : 'الدورات المتاحة'}
                         </h2>
-                        <p className="text-center text-secondary">
-                            {filteredCourses.length} دورة متاحة
-                        </p>
                     </div>
 
-                    <div className="courses-grid grid grid-3 gap-lg">
-                        {filteredCourses.map((course) => (
-                            <CourseCard key={course.id} course={course} />
-                        ))}
-                    </div>
-
-                    {filteredCourses.length === 0 && (
+                    {filteredCourses.length > 0 ? (
+                        <div className="grid grid-4">
+                            {filteredCourses.map((course) => (
+                                <CourseCard key={course.id} course={course} />
+                            ))}
+                        </div>
+                    ) : (
                         <div className="empty-state text-center py-2xl">
-                            <div className="empty-icon mb-md">
-                                <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-                                    <circle cx="40" cy="40" r="40" fill="var(--bg-card)" />
-                                    <path d="M40 20v24M40 52v4" stroke="var(--primary)" strokeWidth="3" strokeLinecap="round" />
-                                </svg>
-                            </div>
-                            <h3>لا توجد دورات في هذه الفئة</h3>
-                            <p className="text-secondary">جرّب فئة أخرى لاستكشاف المزيد من الدورات</p>
+                            <p>لا توجد دورات في هذه الفئة حالياً</p>
                         </div>
                     )}
                 </div>
@@ -57,6 +68,39 @@ function App() {
 
             <Footer />
         </div>
+    );
+}
+
+function App() {
+    return (
+        <Router>
+            <Routes>
+                {/* Public Routes */}
+                <Route path="/" element={<HomePage />} />
+                <Route path="/admin/login" element={<AdminLogin />} />
+
+                {/* Protected Admin Routes */}
+                <Route path="/admin" element={
+                    <ProtectedRoute>
+                        <AdminLayout />
+                    </ProtectedRoute>
+                }>
+                    <Route index element={<AdminDashboard />} />
+                    <Route path="enrollments" element={<EnrollmentsManagement />} />
+                    <Route path="courses" element={<div style={{ padding: '2rem' }}>
+                        <h1>إدارة الدورات</h1>
+                        <p>قيد الإنشاء...</p>
+                    </div>} />
+                    <Route path="statistics" element={<div style={{ padding: '2rem' }}>
+                        <h1>الإحصائيات</h1>
+                        <p>قيد الإنشاء...</p>
+                    </div>} />
+                </Route>
+
+                {/* Catch all */}
+                <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+        </Router>
     );
 }
 
