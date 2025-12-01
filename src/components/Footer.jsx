@@ -58,55 +58,38 @@ const Footer = () => {
                         <h4 className="footer-title">روابط سريعة</h4>
                         <ul className="footer-links">
                             <li><a href="#home">الرئيسية</a></li>
-                            <li><a href="#courses">الدورات</a></li>
-                            <li><a href="#about">عن الأكاديمية</a></li>
-                            <li><a href="#contact">اتصل بنا</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="footer-section">
-                        <h4 className="footer-title">الفئات</h4>
-                        <ul className="footer-links">
-                            <li><a href="#design">التصميم والإبداع</a></li>
-                            <li><a href="#productivity">الإنتاجية والتطوير الذاتي</a></li>
-                            <li><a href="#beauty">الجمال ونمط الحياة</a></li>
-                            <li><a href="#kids">تعليم الأطفال</a></li>
-                        </ul>
-                    </div>
-
-                    <div className="footer-section">
-                        <h4 className="footer-title">التواصل والدعم</h4>
-                        <ul className="footer-contact">
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M2 5l6 4 6-4M2 5v6a1 1 0 001 1h10a1 1 0 001-1V5M2 5a1 1 0 011-1h10a1 1 0 011 1" stroke="currentColor" strokeWidth="1.5" />
-                                </svg>
-                                <span>support@academy.om</span>
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M14.5 11.3c-.2.8-.9 1.4-1.7 1.5-.9.1-1.8.2-2.8.2-5.5 0-10-4.5-10-10 0-1 .1-1.9.2-2.8C.3 1.4.9.7 1.7.5c.8-.2 1.6.2 2 .9L5 3.7c.3.5.2 1.1-.2 1.5l-1 1c-.2.2-.2.5 0 .7.8 1 1.8 1.9 2.8 2.8.2.2.5.2.7 0l1-1c.4-.4 1-.5 1.5-.2l2.3 1.3c.7.4 1.1 1.2.9 2z" stroke="currentColor" strokeWidth="1.5" />
-                                </svg>
-                                <span>+968 9123 4567</span>
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M8 1c3.9 0 7 3.1 7 7 0 3.9-3.1 7-7 7-1.2 0-2.4-.3-3.4-.9L1 15l.9-3.6C1.3 10.4 1 9.2 1 8c0-3.9 3.1-7 7-7z" stroke="currentColor" strokeWidth="1.5" />
-                                    <path d="M11.5 10.5c-.2.5-.9.9-1.5 1-.4 0-.9.1-2.8-.6-2.3-.8-3.8-3.1-3.9-3.2-.1-.1-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .4.3.2.4.6 1.5.7 1.6 0 .1.1.2 0 .4-.1.1-.1.2-.2.3l-.3.3c-.1.1-.2.2-.1.4.4.7.9 1.3 1.4 1.7.6.5 1.2.7 1.4.8.2.1.3.1.4 0 .1-.1.5-.6.6-.8.2-.2.3-.2.5-.1l1.3.6c.2.1.3.1.4.2.1.2.1.7-.1 1.2z" fill="currentColor" />
-                                </svg>
-                                <span>واتساب: +968 9123 4567</span>
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" strokeWidth="1.5" />
-                                    <path d="M8 4v4l2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
-                                </svg>
-                                <span>الأحد - الخميس: 9 صباحاً - 6 مساءً</span>
-                            </li>
-                            <li>
-                                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
-                                    <path d="M8 2a5 5 0 015 5c0 3-5 7-5 7S3 10 3 7a5 5 0 015-5z" stroke="currentColor" strokeWidth="1.5" />
-                                    <circle cx="8" cy="7" r="1.5" stroke="currentColor" strokeWidth="1.5" />
-                                </svg>
-                                <span>مسقط، سلطنة عُمان</span>
-                                export default Footer;
+                            <h4 className="footer-title">التواصل والدعم</h4>
+                            <ul className="footer-contact">
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M2 5l6 4 6-4M2 5v6a1 1 0 001 1h10a1 1 0 001-1V5M2 5a1 1 0 011-1h10a1 1 0 011 1" stroke="currentColor" strokeWidth="1.5" />
+                                    </svg>
+                                    <span>support@academy.om</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M14.5 11.3c-.2.8-.9 1.4-1.7 1.5-.9.1-1.8.2-2.8.2-5.5 0-10-4.5-10-10 0-1 .1-1.9.2-2.8C.3 1.4.9.7 1.7.5c.8-.2 1.6.2 2 .9L5 3.7c.3.5.2 1.1-.2 1.5l-1 1c-.2.2-.2.5 0 .7.8 1 1.8 1.9 2.8 2.8.2.2.5.2.7 0l1-1c.4-.4 1-.5 1.5-.2l2.3 1.3c.7.4 1.1 1.2.9 2z" stroke="currentColor" strokeWidth="1.5" />
+                                    </svg>
+                                    <span>+968 9123 4567</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 1c3.9 0 7 3.1 7 7 0 3.9-3.1 7-7 7-1.2 0-2.4-.3-3.4-.9L1 15l.9-3.6C1.3 10.4 1 9.2 1 8c0-3.9 3.1-7 7-7z" stroke="currentColor" strokeWidth="1.5" />
+                                        <path d="M11.5 10.5c-.2.5-.9.9-1.5 1-.4 0-.9.1-2.8-.6-2.3-.8-3.8-3.1-3.9-3.2-.1-.1-.9-1.2-.9-2.3s.6-1.6.8-1.8c.2-.2.4-.3.5-.3h.4c.1 0 .3 0 .4.3.2.4.6 1.5.7 1.6 0 .1.1.2 0 .4-.1.1-.1.2-.2.3l-.3.3c-.1.1-.2.2-.1.4.4.7.9 1.3 1.4 1.7.6.5 1.2.7 1.4.8.2.1.3.1.4 0 .1-.1.5-.6.6-.8.2-.2.3-.2.5-.1l1.3.6c.2.1.3.1.4.2.1.2.1.7-.1 1.2z" fill="currentColor" />
+                                    </svg>
+                                    <span>واتساب: +968 9123 4567</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 14A6 6 0 108 2a6 6 0 000 12z" stroke="currentColor" strokeWidth="1.5" />
+                                        <path d="M8 4v4l2 2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                                    </svg>
+                                    <span>الأحد - الخميس: 9 صباحاً - 6 مساءً</span>
+                                </li>
+                                <li>
+                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                                        <path d="M8 2a5 5 0 015 5c0 3-5 7-5 7S3 10 3 7a5 5 0 015-5z" stroke="currentColor" strokeWidth="1.5" />
+                                        <circle cx="8" cy="7" r="1.5" stroke="currentColor" strokeWidth="1.5" />
+                                    </svg>
+                                    <span>مسقط، سلطنة عُمان</span>
+                                    export default Footer;

@@ -4,18 +4,6 @@ import Header from './components/Header';
 import Hero from './components/Hero';
 import CategoryFilter from './components/CategoryFilter';
 import CourseCard from './components/CourseCard';
-import Footer from './components/Footer';
-import AdminLogin from './pages/AdminLogin';
-import AdminLayout from './components/admin/AdminLayout';
-import AdminDashboard from './pages/AdminDashboard';
-import EnrollmentsManagement from './pages/admin/EnrollmentsManagement';
-import CoursesManagement from './pages/admin/CoursesManagement';
-import ProtectedRoute from './components/ProtectedRoute';
-import coursesData from './data/courses';
-import sampleEnrollments from './data/sampleEnrollments';
-import { initializeData, saveEnrollments, getEnrollments } from './utils/storage';
-import { useState, useEffect } from 'react';
-
 function HomePage() {
     const [selectedCategory, setSelectedCategory] = useState('all');
     const [courses, setCourses] = useState([]);
@@ -31,44 +19,20 @@ function HomePage() {
 
         setCourses(coursesData);
     }, []);
-
-    const filteredCourses = selectedCategory === 'all'
-        ? courses
-        : courses.filter(course => course.categoryId === selectedCategory);
-
-    return (
-        <div className="app">
-            <Header />
-            <Hero />
-            <CategoryFilter
-                selectedCategory={selectedCategory}
-                onSelectCategory={setSelectedCategory}
-            />
-
-            <section className="courses-section py-2xl">
-                <div className="container">
-                    <div className="section-header text-center mb-2xl">
-                        <h2 className="section-title">
-                            {selectedCategory === 'all' ? 'جميع الدورات' : 'الدورات المتاحة'}
-                        </h2>
-                    </div>
-
-                    {filteredCourses.length > 0 ? (
-                        <div className="grid grid-4">
-                            {filteredCourses.map((course) => (
-                                <CourseCard key={course.id} course={course} />
-                            ))}
-                        </div>
+    <CourseCard key={course.id} course={course} />
+                            ))
+}
+                        </div >
                     ) : (
-                        <div className="empty-state text-center py-2xl">
-                            <p>لا توجد دورات في هذه الفئة حالياً</p>
-                        </div>
-                    )}
-                </div>
-            </section>
+    <div className="empty-state text-center py-2xl">
+        <p>لا توجد دورات في هذه الفئة حالياً</p>
+    </div>
+)}
+                </div >
+            </section >
 
-            <Footer />
-        </div>
+    <Footer />
+        </div >
     );
 }
 
